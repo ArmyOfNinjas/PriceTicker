@@ -1,0 +1,17 @@
+﻿<Window x:Class="PriceTicker.HistoryWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Price History" Height="300" Width="400">
+    <Grid>
+        <DockPanel>
+            <ListView Name="HistoryListView">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Date/Time" DisplayMemberBinding="{Binding DateTime}" Width="200"/>
+                        <GridViewColumn Header="Price" DisplayMemberBinding="{Binding Price}" Width="100"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </DockPanel>
+    </Grid>
+</Window>

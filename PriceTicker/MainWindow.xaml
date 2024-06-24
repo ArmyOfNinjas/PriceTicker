@@ -1,0 +1,38 @@
+﻿<Window x:Class="PriceTicker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Stock Ticker" Height="350" Width="525">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Margin" Value="5,0,0,0"/>
+        </Style>
+        <Style x:Key="PriceTextBlock" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="10,0,0,0"/>
+        </Style>
+        <Style x:Key="PriceChangeTextBlock" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Arial"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="Margin" Value="5,0,0,0"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <ListView Name="StockListView" MouseDoubleClick="StockListView_MouseDoubleClick">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding StockName}" FontWeight="Bold" FontSize="18"/>
+                        <TextBlock Text="{Binding Price, StringFormat=F2}" Style="{StaticResource PriceTextBlock}" 
+                                   Foreground="{Binding PriceColor}"/>
+                        <TextBlock Text="{Binding PriceChange, StringFormat=F2}" Style="{StaticResource PriceChangeTextBlock}" 
+                                   Foreground="{Binding PriceChangeColor}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Window>
